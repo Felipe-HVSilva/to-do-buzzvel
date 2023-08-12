@@ -10,6 +10,7 @@ interface TaskContext {
   tasks:Task[],
   createNewTask:(task: string) => void;
   deleteTask:(taskId: number) => void;
+  changeStatusTask:(taskId: number) => void;
 }
 
 interface TaskProviderProps {
@@ -36,8 +37,16 @@ export function TaskProvaider({ children }: TaskProviderProps) {
     setTasks(taskDeleted);
   }
 
+  function changeStatusTask(taskId: number) {
+    const taskCompleted = tasks.map((task) =>
+      task.id === taskId ? { ...task, isCompleted: !task.isCompleted } : task
+    );
+
+    setTasks(taskCompleted);
+  }
+
   return (
-    <TaskContext.Provider value={{tasks, createNewTask, deleteTask}}>
+    <TaskContext.Provider value={{tasks, createNewTask, deleteTask, changeStatusTask}}>
       {children}
     </TaskContext.Provider>
   );

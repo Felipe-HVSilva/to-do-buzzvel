@@ -2,6 +2,7 @@ import { useContext } from 'react';
 import { Header } from '../components/Header';
 import { TaskContext } from '../context/TaskContext';
 import { Task } from '../components/Task';
+import { TaskListHeader } from '../components/TaskListHeader';
 
 export function Home() {
   const { tasks } = useContext(TaskContext);
@@ -12,22 +13,11 @@ export function Home() {
         <Header />
 
         <main className='mt-16'>
-          <header className='flex justify-between content-center'>
-            <button className='text-blue text-sm font-bold'>Order</button>
-            <div className='flex gap-2'>
-              <span className='text-purple text-sm font-bold' >Completed</span>
-              <div className='flex items-center justify-center bg-gray-400 px-2 rounded-full gap-1 text-gray-200 text-xs font-bold'>
-                <span>2</span>
-            of
-                <span>5</span>
-              </div>
-            </div>
-          </header>
+          <TaskListHeader />
 
           {tasks.length >= 1 ? (
             <section className='mt-10 flex flex-col gap-3'>
               {tasks.map((task) => (<Task key={task.id} task={task} />)) }
-
             </section>
           ) : (
             <section className='text-center mt-10'>
