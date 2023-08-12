@@ -16,8 +16,6 @@ interface TaskProps {
 
 }
 
-
-
 export function Task({task}:TaskProps) {
   const [newSubTask, setNewSubTask] = useState('');
 
@@ -54,7 +52,6 @@ export function Task({task}:TaskProps) {
           ))}
         </ul>
       </div>
-
       <button onClick={() => deleteTask(task.id)}>
         <Trash size={14} className='hover:text-danger' />
       </button>
