@@ -1,27 +1,42 @@
-# React + TypeScript + Vite
+## Link Project
+[AQUI](https://to-do-buzzvel.vercel.app/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Or installing a Repository Locally on Your Machine
 
-Currently, two official plugins are available:
+This guide will walk you through the process of installing a repository from a remote source onto your local machine. This can be useful for development, testing, or simply exploring the contents of the repository offline.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Prerequisites:
 
-## Expanding the ESLint configuration
+- Basic understanding of command-line interface (CLI)
+- Git installed on your machine
+- A code repository URL that you want to clone
+Steps:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Clone the Repository:
+Open your command-line interface (e.g., Terminal on macOS or Command Prompt on Windows) and navigate to the directory where you want to clone the repository. Use the following command to clone the repository:
 
-- Configure the top-level `parserOptions` property like this:
 
 ```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+  git clone <repository_url>
+  Replace <repository_url> with the actual URL of the repository you want to clone.
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Navigate to the Repository Directory:
+Once the cloning process is complete, navigate into the cloned repository's directory using the cd command:
+
+```js
+  cd <repository_directory>
+  Replace <repository_directory> with the name of the directory that was created during the cloning process.
+```
+
+## Install Dependencies:
+```js
+  yarn
+  Replace <repository_directory> with the name of the directory that was created during the cloning process.
+```
+
+## Run the Application (If Applicable):
+
+```js
+  yarn dev
+```
