@@ -26,7 +26,8 @@ export function Home() {
 
           {tasks.length >= 1 ? (
             <section className='mt-10 flex flex-col gap-3'>
-              <Task />
+              {tasks.map((task) => (<Task key={task.id} task={task} />)) }
+
             </section>
           ) : (
             <section className='text-center mt-10'>

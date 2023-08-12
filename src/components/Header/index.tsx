@@ -4,9 +4,7 @@ import { TaskContext } from '../../context/TaskContext';
 export function Header() {
   const [taskName,setTaskName] = useState('');
 
-  const {createNewTask, tasks} = useContext(TaskContext);
-
-  console.log(tasks);
+  const { createNewTask } = useContext(TaskContext);
 
   function handleAddNewTask() {
     if (!taskName) {

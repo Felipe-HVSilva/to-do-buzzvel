@@ -32,9 +32,8 @@ export function TaskProvaider({ children }: TaskProviderProps) {
   }
 
   function deleteTask(taskId: number) {
-    setTasks((prevState) => prevState.filter(task => {
-      task.id !== taskId;
-    }));
+    const taskDeleted = tasks.filter((task) => task.id !== taskId);
+    setTasks(taskDeleted);
   }
 
   return (
