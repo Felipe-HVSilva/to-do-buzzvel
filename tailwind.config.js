@@ -14,6 +14,9 @@ export default {
         'blue-dark':'#1e6f9f',
 
         'gray-100':'#F2F2F2',
+        'gray-300':'#808080',
+        'gray-500':'#262626',
+        'gray-700':'#0D0D0D',
         'gray-600':'#1A1A1A',
       }
     },
