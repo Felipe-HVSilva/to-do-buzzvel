@@ -1,9 +1,14 @@
 import { ReactNode, createContext, useState } from 'react';
 
+interface SubTasks {
+  subTaskName:string,
+}
+
 interface Task {
   id: number,
   isCompleted: boolean,
-  title: string
+  title: string,
+  subtasks: SubTasks[]
 }
 
 interface TaskContext {
@@ -11,6 +16,7 @@ interface TaskContext {
   createNewTask:(task: string) => void;
   deleteTask:(taskId: number) => void;
   changeStatusTask:(taskId: number) => void;
+  addSubtask: (taskId:number, subTask:string) => void
 }
 
 interface TaskProviderProps {
@@ -26,7 +32,8 @@ export function TaskProvaider({ children }: TaskProviderProps) {
     const newTask = {
       title: task,
       id: Math.random(),
-      isCompleted: false
+      isCompleted: false,
+      subtasks:[]
     };
 
     setTasks((prevState) => [...prevState, newTask]);
@@ -45,8 +52,18 @@ export function TaskProvaider({ children }: TaskProviderProps) {
     setTasks(taskCompleted);
   }
 
+  function addSubtask(taskId: number, subTask: string) {
+    const updatedTasks = tasks.map((task) =>
+      task.id === taskId
+        ? { ...task, subtasks: [...task.subtasks, { subTaskName: subTask }] }
+        : task
+    );
+
+    setTasks(updatedTasks);
+  }
+
   return (
-    <TaskContext.Provider value={{tasks, createNewTask, deleteTask, changeStatusTask}}>
+    <TaskContext.Provider value={{tasks, createNewTask, deleteTask, changeStatusTask, addSubtask}}>
       {children}
     </TaskContext.Provider>
   );

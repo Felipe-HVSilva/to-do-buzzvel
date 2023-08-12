@@ -7,6 +7,8 @@ import { TaskListHeader } from '../components/TaskListHeader';
 export function Home() {
   const { tasks } = useContext(TaskContext);
 
+  console.log(tasks);
+
   return (
     <div className="h-screen bg-gray-600 text-gray-100 font-body font-normal">
       <div className="w-[736px] mx-auto max-xl:">

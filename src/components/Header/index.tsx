@@ -11,6 +11,7 @@ export function Header() {
       return;
     }
     createNewTask(taskName);
+    setTaskName('');
   }
 
   return (
