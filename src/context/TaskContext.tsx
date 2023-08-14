@@ -16,7 +16,8 @@ interface TaskContext {
   createNewTask:(task: string) => void;
   deleteTask:(taskId: number) => void;
   changeStatusTask:(taskId: number) => void;
-  addSubtask: (taskId:number, subTask:string) => void
+  addSubtask: (taskId:number, subTask:string) => void;
+  sortTaskAlphabeticOrder:(order: string) => void
 }
 
 interface TaskProviderProps {
@@ -52,6 +53,18 @@ export function TaskProvaider({ children }: TaskProviderProps) {
     setTasks(taskCompleted);
   }
 
+  function sortTaskAlphabeticOrder(order: string) {
+    const sortedTasks = [...tasks];
+
+    if (order === 'asc') {
+      sortedTasks.sort((a, b) => a.title.localeCompare(b.title));
+    } else if (order === 'desc') {
+      sortedTasks.sort((a, b) => b.title.localeCompare(a.title));
+    }
+
+    setTasks(sortedTasks);
+  }
+
   function addSubtask(taskId: number, subTask: string) {
     const updatedTasks = tasks.map((task) =>
       task.id === taskId
@@ -63,7 +76,7 @@ export function TaskProvaider({ children }: TaskProviderProps) {
   }
 
   return (
-    <TaskContext.Provider value={{tasks, createNewTask, deleteTask, changeStatusTask, addSubtask}}>
+    <TaskContext.Provider value={{tasks, createNewTask, deleteTask, changeStatusTask, addSubtask, sortTaskAlphabeticOrder}}>
       {children}
     </TaskContext.Provider>
   );
